@@ -18,7 +18,7 @@ work();
 work();
 work();
 spendMoney(30);
-console.log(money);
+// console.log(money);
 
 // This would sort of work, so long as we only ever wanted 
 // to keep track of 1 person's money
@@ -163,8 +163,8 @@ let backupBender = shortTermRobos();
 // Instead we can return a bunch of functions (usually on an object)
 // that all work with the same data
 
-function fullFeatureRobo(){
-  let energy = 50;
+function fullFeatureRobo(energy){
+  
 
   return {
     dance:function(){
@@ -177,30 +177,58 @@ function fullFeatureRobo(){
     },
     powerDown:function(){
       energy += 10;
+    },
+    displayEnergy:function(){
+      console.log(energy);
     }
   }
 }
 
-let myRobo = fullFeatureRobo();
+let myRobo = fullFeatureRobo(60);
 
 // myRobo.energy = 500000000000;
-console.log(myRobo.energy);
+// console.log(myRobo.energy);
 
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.powerDown()
-myRobo.powerDown()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
-myRobo.dance()
+// myRobo.displayEnergy()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.displayEnergy()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.powerDown()
+// myRobo.displayEnergy()
+// myRobo.powerDown()
+// myRobo.dance()
+// myRobo.dance()
+// myRobo.displayEnergy()
+// myRobo.dance()
+// myRobo.dance()
 
 // Practice
 // Make a counter function that tells the user
 // how many times it has been called
 
+function makeCounter(){
+  let count = 0;
+
+  return {
+    count: function(){
+      count++;
+      console.log(`This function has been calld ${count} times.`);
+    },
+    reset:function(){
+      count = 0;
+    }
+  }
+}
+
+let countacula = makeCounter();
+countacula.count()
+countacula.count()
+countacula.count()
+countacula.reset()
+countacula.count()
+countacula.count()
